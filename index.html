@@ -299,6 +299,45 @@
             .whatsapp-float i {
                 font-size: 1.5rem !important;
             }
+            
+            /* ===== CORRECTIONS AJOUTÉES ===== */
+            
+            /* 1. Forcer l'affichage du bouton hamburger */
+            #menuToggle {
+                display: block !important;
+                position: relative !important;
+                z-index: 60 !important;
+                right: 0 !important;
+            }
+            
+            /* 2. Réduire les très gros textes */
+            .text-5xl, .text-6xl, .text-7xl, h1.text-5xl, h1.text-6xl, h1.text-7xl {
+                font-size: 2.2rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            /* 3. Ajuster le logo pour laisser de la place */
+            nav .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* 4. Réduire la taille du logo sur mobile */
+            .w-12.h-12 {
+                width: 2.5rem !important;
+                height: 2.5rem !important;
+            }
+            
+            /* 5. Réduire la taille du texte du logo */
+            .text-xl {
+                font-size: 1rem !important;
+            }
+            
+            /* 6. Réduire les badges flottants (déjà fait mais renforcé) */
+            .absolute.-top-4, .absolute.-bottom-4 {
+                padding: 0.4rem 0.8rem !important;
+                font-size: 0.7rem !important;
+            }
         }
         
         @media (min-width: 641px) and (max-width: 768px) {
