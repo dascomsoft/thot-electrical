@@ -185,6 +185,20 @@
         
         /* ===== OPTIMISATIONS MOBILE ===== */
         @media (max-width: 640px) {
+            /* Empêcher le débordement horizontal */
+            body, html {
+                overflow-x: hidden !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .container {
+                overflow-x: hidden !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
             h1 {
                 font-size: 2.5rem !important;
                 line-height: 1.2 !important;
@@ -234,7 +248,7 @@
                 padding-bottom: 2rem !important;
             }
             .pt-32 {
-                padding-top: 6rem !important;
+                padding-top: 5rem !important;
             }
             .gap-8 {
                 gap: 1rem !important;
@@ -243,28 +257,28 @@
                 gap: 2rem !important;
             }
             .gap-16 {
-                gap: 2.5rem !important;
+                gap: 2rem !important;
             }
             .mt-16 {
-                margin-top: 2.5rem !important;
-            }
-            .mt-12 {
                 margin-top: 2rem !important;
             }
-            .mt-8 {
+            .mt-12 {
                 margin-top: 1.5rem !important;
             }
-            .mb-16 {
-                margin-bottom: 2.5rem !important;
+            .mt-8 {
+                margin-top: 1.2rem !important;
             }
-            .mb-12 {
+            .mb-16 {
                 margin-bottom: 2rem !important;
             }
-            .mb-8 {
+            .mb-12 {
                 margin-bottom: 1.5rem !important;
             }
+            .mb-8 {
+                margin-bottom: 1.2rem !important;
+            }
             .mb-6 {
-                margin-bottom: 1.25rem !important;
+                margin-bottom: 1rem !important;
             }
             .w-12 {
                 width: 2.5rem !important;
@@ -288,36 +302,72 @@
                 height: 3.5rem !important;
             }
             .w-24 {
-                width: 4rem !important;
-                height: 4rem !important;
+                width: 3.5rem !important;
+                height: 3.5rem !important;
             }
             .h-24 {
-                height: 4rem !important;
+                height: 3.5rem !important;
             }
             .grid-cols-2 {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
             .absolute.-bottom-6 {
-                bottom: -1rem !important;
-                right: -1rem !important;
-                padding: 1rem !important;
+                bottom: -0.8rem !important;
+                right: -0.8rem !important;
+                padding: 0.8rem !important;
             }
             .absolute.-bottom-6 i {
-                font-size: 1.5rem !important;
+                font-size: 1.2rem !important;
             }
             .whatsapp-float {
                 bottom: 15px !important;
                 right: 15px !important;
                 padding: 0.75rem !important;
+                z-index: 1001 !important;
             }
             .whatsapp-float i {
                 font-size: 1.5rem !important;
             }
             .h-96 {
-                height: 20rem !important;
+                height: 16rem !important;
             }
             .min-h-\[60vh\] {
-                min-height: 50vh !important;
+                min-height: 40vh !important;
+            }
+            
+            /* ===== CORRECTIONS POUR AFFICHAGE DU HAMBURGER ===== */
+            
+            /* Forcer le bouton hamburger à être visible */
+            #menuToggle {
+                display: block !important;
+                position: relative !important;
+                z-index: 1001 !important;
+                background: transparent !important;
+                font-size: 1.8rem !important;
+            }
+            
+            /* Réduire la taille du logo */
+            nav .flex.items-center.space-x-2 {
+                max-width: 75% !important;
+            }
+            
+            .w-12.h-12 {
+                width: 2.2rem !important;
+                height: 2.2rem !important;
+            }
+            
+            .text-xl {
+                font-size: 0.9rem !important;
+            }
+            
+            .text-xs {
+                font-size: 0.6rem !important;
+            }
+            
+            /* Ajuster la navigation */
+            nav .container {
+                padding-left: 0.8rem !important;
+                padding-right: 0.8rem !important;
             }
         }
         
@@ -331,7 +381,7 @@
         }
     </style>
 </head>
-<body class="bg-slate-800 text-white">
+<body class="bg-slate-800 text-white" style="overflow-x: hidden; width: 100%;">
 
     <!-- WhatsApp Flottant -->
     <a href="https://wa.me/237693795561" class="whatsapp-float bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all z-50" target="_blank">
