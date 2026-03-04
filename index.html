@@ -186,6 +186,21 @@
         
         /* ===== OPTIMISATIONS MOBILE ===== */
         @media (max-width: 640px) {
+            /* Empêcher le débordement horizontal */
+            body, html {
+                overflow-x: hidden !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .container {
+                overflow-x: hidden !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            /* Réduction des tailles de texte */
             h1 {
                 font-size: 2.5rem !important;
                 line-height: 1.2 !important;
@@ -209,6 +224,8 @@
             .text-4xl {
                 font-size: 2rem !important;
             }
+            
+            /* Réduction des espacements */
             .p-8 {
                 padding: 1.25rem !important;
             }
@@ -231,6 +248,11 @@
                 padding-top: 2rem !important;
                 padding-bottom: 2rem !important;
             }
+            .pt-20 {
+                padding-top: 5rem !important;
+            }
+            
+            /* Réduction des gaps et marges */
             .gap-8 {
                 gap: 1rem !important;
             }
@@ -255,6 +277,8 @@
             .mb-8 {
                 margin-bottom: 1.5rem !important;
             }
+            
+            /* Réduction des icônes */
             .w-12 {
                 width: 2.5rem !important;
                 height: 2.5rem !important;
@@ -276,9 +300,13 @@
             .h-20 {
                 height: 3.5rem !important;
             }
+            
+            /* Grilles */
             .grid-cols-2 {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
+            
+            /* Badges flottants */
             .absolute.-top-4 {
                 top: -0.5rem !important;
                 right: -0.5rem !important;
@@ -291,46 +319,32 @@
                 padding: 0.5rem 1rem !important;
                 font-size: 0.8rem !important;
             }
+            
+            /* WhatsApp */
             .whatsapp-float {
                 bottom: 15px !important;
                 right: 15px !important;
                 padding: 0.75rem !important;
+                z-index: 1001 !important;
             }
             .whatsapp-float i {
                 font-size: 1.5rem !important;
             }
             
-            /* ===== CORRECTIONS POUR AFFICHAGE DIRECT ===== */
+            /* ===== CORRECTIONS POUR AFFICHAGE DU HAMBURGER ===== */
             
-            /* 1. Forcer le bouton hamburger à apparaître immédiatement */
+            /* Forcer le bouton hamburger à être visible */
             #menuToggle {
                 display: block !important;
-                position: fixed !important;
-                top: 1.2rem !important;
-                right: 1rem !important;
+                position: relative !important;
                 z-index: 1001 !important;
                 background: transparent !important;
+                font-size: 1.8rem !important;
             }
             
-            /* 2. Ajuster le z-index de la navigation */
-            nav {
-                z-index: 1000 !important;
-            }
-            
-            /* 3. Forcer l'affichage du WhatsApp */
-            .whatsapp-float {
-                position: fixed !important;
-                bottom: 15px !important;
-                right: 15px !important;
-                z-index: 1001 !important;
-                display: block !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-            }
-            
-            /* 4. Réduire la taille du logo pour plus de place */
+            /* Réduire la taille du logo */
             nav .flex.items-center.space-x-2 {
-                max-width: 70% !important;
+                max-width: 75% !important;
             }
             
             .w-12.h-12 {
@@ -345,6 +359,12 @@
             .text-xs {
                 font-size: 0.6rem !important;
             }
+            
+            /* Ajuster la navigation */
+            nav .container {
+                padding-left: 0.8rem !important;
+                padding-right: 0.8rem !important;
+            }
         }
         
         @media (min-width: 641px) and (max-width: 768px) {
@@ -357,7 +377,7 @@
         }
     </style>
 </head>
-<body class="bg-slate-800 text-white">
+<body class="bg-slate-800 text-white" style="overflow-x: hidden; width: 100%;">
 
     <!-- WhatsApp Flottant -->
     <a href="https://wa.me/237693795561" class="whatsapp-float bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all z-50" target="_blank">
