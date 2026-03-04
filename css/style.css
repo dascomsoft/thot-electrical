@@ -1,0 +1,89 @@
+/* Police Nunito */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap');
+
+* {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Animations personnalisées */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.float-animation {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.6); }
+}
+
+.glow-effect {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Effet de ligne électrique */
+.electric-line {
+    position: relative;
+    overflow: hidden;
+}
+
+.electric-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #FBBF24, transparent);
+    animation: electric 2s linear infinite;
+}
+
+@keyframes electric {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Menu mobile */
+.mobile-menu {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Cards hover effects */
+.service-card {
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* WhatsApp button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    animation: float 2s ease-in-out infinite;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1E3A8A;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FBBF24;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #F59E0B;
+}

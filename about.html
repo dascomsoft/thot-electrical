@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>THOT ELECTRICAL SARL - À Propos</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/thotlogo.jpg">
+    <link rel="shortcut icon" href="images/thotlogo.jpg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Configuration Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A',
+                        secondary: '#FBBF24',
+                    },
+                    fontFamily: {
+                        'nunito': ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        /* Hero avec image de fond */
+        .about-hero-bg {
+            background-image: linear-gradient(rgba(30, 41, 59, 0.9), rgba(30, 41, 59, 0.9)), url('images/worker3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.6); }
+        }
+        
+        .glow-effect {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        .electric-line {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .electric-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FBBF24, transparent);
+            animation: electric 2s linear infinite;
+        }
+        
+        @keyframes electric {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        /* Menu mobile */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #1e293b;
+            z-index: 100;
+            display: none;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #FBBF24;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+        
+        .mobile-menu .menu-items {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: 2rem;
+        }
+        
+        .mobile-menu .menu-items a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .mobile-menu .menu-items a:hover,
+        .mobile-menu .menu-items a.active {
+            color: #FBBF24;
+        }
+        
+        .counter-item {
+            transition: all 0.3s ease;
+        }
+        
+        .counter-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-member {
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-card {
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: #FBBF24;
+        }
+    </style>
+</head>
+<body class="bg-slate-800 text-white">
+
+    <!-- WhatsApp Flottant -->
+    <a href="https://wa.me/237693795561" class="whatsapp-float bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all z-50" target="_blank">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Navigation Desktop -->
+    <nav class="bg-slate-800/95 backdrop-blur-sm fixed w-full z-50 border-b border-secondary/20">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2" data-aos="fade-right">
+                    <img src="images/thotlogo.jpg" alt="THOT Electrical" class="w-12 h-12 rounded-full object-cover border-2 border-secondary">
+                    <div>
+                        <h1 class="text-xl font-bold text-secondary">THOT</h1>
+                        <p class="text-xs text-white">ELECTRICAL SARL</p>
+                    </div>
+                </a>
+
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex space-x-8" data-aos="fade-left">
+                    <a href="index.html" class="text-white hover:text-secondary transition">Accueil</a>
+                    <a href="about.html" class="text-secondary font-semibold border-b-2 border-secondary pb-1">À Propos</a>
+                    <a href="services.html" class="text-white hover:text-secondary transition">Services</a>
+                    <a href="electricite.html" class="text-white hover:text-secondary transition">Électricité</a>
+                    <a href="solaire.html" class="text-white hover:text-secondary transition">Solaire</a>
+                    <a href="securite.html" class="text-white hover:text-secondary transition">Sécurité</a>
+                    <a href="contact.html" class="text-white hover:text-secondary transition">Contact</a>
+                </div>
+
+                <!-- Menu Mobile Button -->
+                <button id="menuToggle" class="md:hidden text-secondary text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Mobile -->
+    <div id="mobileMenu" class="mobile-menu">
+        <div class="close-btn" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="menu-items">
+            <a href="index.html">Accueil</a>
+            <a href="about.html" class="active">À Propos</a>
+            <a href="services.html">Services</a>
+            <a href="electricite.html">Électricité</a>
+            <a href="solaire.html">Solaire</a>
+            <a href="securite.html">Sécurité</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section - À Propos avec image de fond -->
+    <section class="relative pt-32 pb-20 overflow-hidden about-hero-bg min-h-[60vh] flex items-center">
+        <!-- Overlay supplémentaire -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-slate-800/50"></div>
+        
+        <!-- Éléments décoratifs -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-20 w-64 h-64 bg-secondary/10 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center max-w-4xl mx-auto" data-aos="fade-up">
+                <div class="inline-block mb-4 px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full border border-secondary/30 electric-line">
+                    <span class="text-secondary font-semibold flex items-center gap-2">
+                        <i class="fas fa-users"></i>
+                        NOTRE HISTOIRE
+                    </span>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    Une équipe d'<span class="text-secondary">ingénieurs</span> à votre service
+                </h1>
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+                    Découvrez l'histoire de THOT ELECTRICAL SARL, une entreprise fondée par des passionnés du génie électrique.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notre Histoire -->
+    <section class="py-20 bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="relative">
+                        <img src="images/worker3.jpg" alt="Notre équipe" class="rounded-2xl shadow-2xl">
+                        <div class="absolute -bottom-6 -right-6 bg-secondary text-slate-800 p-6 rounded-2xl shadow-xl float-animation">
+                            <i class="fas fa-quote-right text-4xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left">
+                    <span class="bg-secondary/10 text-secondary px-6 py-2 rounded-full text-sm font-semibold border border-secondary/30 inline-block mb-4">NOTRE HISTOIRE</span>
+                    <h2 class="text-4xl font-bold mb-6">La <span class="text-secondary">révolution</span> du génie électrique</h2>
+                    
+                    <div class="space-y-6 text-gray-300">
+                        <p class="text-lg">
+                            <span class="text-secondary font-bold">THOT ELECTRICAL SARL</span> est née d'une vision : réunir les meilleurs ingénieurs et techniciens du génie électrique pour offrir un service d'exception.
+                        </p>
+                        
+                        <p class="text-lg">
+                            Nous sommes un groupe d'<span class="text-secondary font-semibold">ingénieurs et techniciens chevronnés</span>, triés sur le volet, qui autrefois travaillaient dans des bureaux d'études de renom et avec des grandes entreprises du génie électrique.
+                        </p>
+                        
+                        <p class="text-lg">
+                            Après avoir acquis une expérience certaine au service des autres, nous avons décidé de mettre sur pied <span class="text-secondary font-semibold">THOT ELECTRICAL</span> : une SARL révolutionnaire dans le domaine du génie électrique.
+                        </p>
+
+                        <div class="bg-slate-800 p-6 rounded-xl border-l-4 border-secondary mt-8">
+                            <p class="text-xl italic">
+                                "Notre mission : apporter l'excellence des grands bureaux d'études à chaque projet, quel que soit sa taille."
+                            </p>
+                            <p class="mt-4 font-semibold text-secondary">— Rémy Omgba, Fondateur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notre Équipe -->
+    <section class="py-20 bg-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="bg-secondary/10 text-secondary px-6 py-2 rounded-full text-sm font-semibold border border-secondary/30">L'ÉQUIPE</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-6 mb-4">Des experts <span class="text-secondary">passionnés</span></h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">Des profils d'exception, sélectionnés pour leur expertise et leur engagement.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Membre 1 -->
+                <div class="team-member group relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="images/worker.jpg" alt="Rémy Omgba" class="w-full h-96 object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-2xl font-bold text-secondary">Rémy Omgba</h3>
+                        <p class="text-gray-400">Fondateur & Ingénieur Principal</p>
+                        <p class="text-sm text-gray-500 mt-2">15 ans d'expérience</p>
+                    </div>
+                </div>
+
+                <!-- Membre 2 -->
+                <div class="team-member group relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="images/worker1.jpg" alt="Marie Nguimbo" class="w-full h-96 object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-2xl font-bold text-secondary">Marie Nguimbo</h3>
+                        <p class="text-gray-400">Ingénieure Bureau d'Études</p>
+                        <p class="text-sm text-gray-500 mt-2">Spécialiste conception</p>
+                    </div>
+                </div>
+
+                <!-- Membre 3 -->
+                <div class="team-member group relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="images/worker2.jpg" alt="Jean-Pierre Mbarga" class="w-full h-96 object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-2xl font-bold text-secondary">Jean-Pierre Mbarga</h3>
+                        <p class="text-gray-400">Chef d'équipe Installation</p>
+                        <p class="text-sm text-gray-500 mt-2">Expert solaire</p>
+                    </div>
+                </div>
+
+                <!-- Membre 4 -->
+                <div class="team-member group relative" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="images/worker3.jpg" alt="Amina Salifou" class="w-full h-96 object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-2xl font-bold text-secondary">Amina Salifou</h3>
+                        <p class="text-gray-400">Responsable Sécurité</p>
+                        <p class="text-sm text-gray-500 mt-2">Spécialiste SSI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chiffres clés -->
+    <section class="py-20 bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="counter-item bg-slate-800 p-8 rounded-xl text-center border border-secondary/20" data-aos="zoom-in">
+                    <div class="text-5xl font-bold text-secondary counter mb-2" data-target="150">0</div>
+                    <div class="text-lg">Projets réalisés</div>
+                    <div class="text-sm text-gray-400">Depuis 2020</div>
+                </div>
+                <div class="counter-item bg-slate-800 p-8 rounded-xl text-center border border-secondary/20" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-5xl font-bold text-secondary counter mb-2" data-target="8">0</div>
+                    <div class="text-lg">Experts</div>
+                    <div class="text-sm text-gray-400">Ingénieurs & techniciens</div>
+                </div>
+                <div class="counter-item bg-slate-800 p-8 rounded-xl text-center border border-secondary/20" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-5xl font-bold text-secondary counter mb-2" data-target="12">0</div>
+                    <div class="text-lg">Partenaires</div>
+                    <div class="text-sm text-gray-400">Entreprises</div>
+                </div>
+                <div class="counter-item bg-slate-800 p-8 rounded-xl text-center border border-secondary/20" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-5xl font-bold text-secondary counter mb-2" data-target="24">0</div>
+                    <div class="text-lg">Intervention</div>
+                    <div class="text-sm text-gray-400">Heures max</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notre expertise -->
+    <section class="py-20 bg-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="bg-secondary/10 text-secondary px-6 py-2 rounded-full text-sm font-semibold border border-secondary/30">NOTRE EXPERTISE</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-6 mb-4">Notre <span class="text-secondary">expertise</span> en chiffres</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Carte 1 -->
+                <div class="service-card bg-slate-700/50 p-8 rounded-2xl border border-secondary/20" data-aos="fade-up">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-solar-panel text-slate-800 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-secondary">+50 installations</h3>
+                    <p class="text-gray-400">Systèmes solaires installés chez nos clients</p>
+                </div>
+
+                <!-- Carte 2 -->
+                <div class="service-card bg-slate-700/50 p-8 rounded-2xl border border-secondary/20" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-building text-slate-800 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-secondary">+80 chantiers</h3>
+                    <p class="text-gray-400">Électricité bâtiment réalisés</p>
+                </div>
+
+                <!-- Carte 3 -->
+                <div class="service-card bg-slate-700/50 p-8 rounded-2xl border border-secondary/20" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-slate-800 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-secondary">+30 systèmes</h3>
+                    <p class="text-gray-400">Caméras et incendie installés</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valeurs -->
+    <section class="py-20 bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="bg-secondary/10 text-secondary px-6 py-2 rounded-full text-sm font-semibold border border-secondary/30">NOS VALEURS</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-6 mb-4">Ce qui nous <span class="text-secondary">anime</span></h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="value-card bg-slate-800 p-8 rounded-2xl border border-secondary/20 text-center" data-aos="fade-up">
+                    <div class="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-medal text-secondary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-secondary">Excellence</h3>
+                    <p class="text-gray-400">Issus des grands bureaux d'études, nous appliquons les plus hauts standards de qualité.</p>
+                </div>
+
+                <div class="value-card bg-slate-800 p-8 rounded-2xl border border-secondary/20 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-handshake text-secondary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-secondary">Confiance</h3>
+                    <p class="text-gray-400">La relation client est au cœur de notre démarche. Transparence et écoute.</p>
+                </div>
+
+                <div class="value-card bg-slate-800 p-8 rounded-2xl border border-secondary/20 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-lightbulb text-secondary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-secondary">Innovation</h3>
+                    <p class="text-gray-400">Veille technologique constante et solutions à la pointe de l'innovation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages clients -->
+    <section class="py-20 bg-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="bg-secondary/10 text-secondary px-6 py-2 rounded-full text-sm font-semibold border border-secondary/30">TÉMOIGNAGES</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-6 mb-4">Ils nous <span class="text-secondary">font confiance</span></h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Témoignage partenaire -->
+                <div class="bg-slate-700/50 p-8 rounded-2xl border border-secondary/20" data-aos="fade-right">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-secondary"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                    </div>
+                    <p class="text-lg mb-6 italic">"THOT Electrical est notre partenaire électrique attitré sur tous nos chantiers à Douala. Professionnalisme et fiabilité."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-slate-800 font-bold">MC</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">Modern Construction</h4>
+                            <p class="text-sm text-gray-400">Partenaire officiel</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Témoignage entreprise -->
+                <div class="bg-slate-700/50 p-8 rounded-2xl border border-secondary/20" data-aos="fade-left">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-secondary"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                    </div>
+                    <p class="text-lg mb-6 italic">"Installation photovoltaïque réalisée par Rémy et son équipe. Un travail soigné et des conseils avisés. Je recommande."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-slate-800 font-bold">ET</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">Ets Les Constructeurs</h4>
+                            <p class="text-sm text-gray-400">Client professionnel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Rejoignez-nous -->
+    <section class="py-20 relative overflow-hidden bg-gradient-to-r from-slate-800 to-slate-900">
+        <div class="absolute inset-0 bg-secondary/5"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">Vous avez un projet électrique ?</h2>
+            <p class="text-xl mb-8 text-gray-300" data-aos="fade-up" data-aos-delay="100">Notre équipe d'ingénieurs est prête à vous accompagner</p>
+            <div class="flex flex-wrap gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
+                <a href="contact.html" class="bg-secondary text-slate-800 px-8 py-4 rounded-full font-bold hover:bg-yellow-400 transition text-lg shadow-lg">
+                    <i class="fas fa-paper-plane mr-2"></i>Discuter de mon projet
+                </a>
+                <a href="tel:+237693795561" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-slate-800 transition text-lg">
+                    <i class="fas fa-phone-alt mr-2"></i>Appel immédiat
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-secondary/20 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="images/thotlogo.jpg" alt="THOT" class="w-10 h-10 rounded-full border border-secondary">
+                        <div>
+                            <h3 class="font-bold text-secondary">THOT ELECTRICAL</h3>
+                            <p class="text-xs text-gray-400">SARL</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">Pour un service exceptionnel dans le génie électrique à Yaoundé et Douala.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-secondary mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="electricite.html" class="hover:text-secondary transition">Électricité bâtiment</a></li>
+                        <li><a href="solaire.html" class="hover:text-secondary transition">Énergie solaire</a></li>
+                        <li><a href="securite.html" class="hover:text-secondary transition">Caméras surveillance</a></li>
+                        <li><a href="securite.html" class="hover:text-secondary transition">Sécurité incendie</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-secondary mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center gap-2"><i class="fas fa-phone-alt text-secondary w-5"></i>+237 693 79 55 61</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-phone-alt text-secondary w-5"></i>+237 672 76 52 36</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-envelope text-secondary w-5"></i>thotelectricalsarl@gmail.com</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-secondary mb-4">Adresses</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-secondary w-5"></i>Douala-Logbessou</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-secondary w-5"></i>Yaoundé-Messassi</li>
+                        <li class="flex items-center gap-2"><i class="far fa-clock text-secondary w-5"></i>7j/7 - 24h/24</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-secondary/20 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2026 THOT ELECTRICAL SARL. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Menu mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.style.display = 'block';
+            setTimeout(() => {
+                mobileMenu.classList.add('open');
+            }, 10);
+        });
+
+        closeMenu.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+            setTimeout(() => {
+                mobileMenu.style.display = 'none';
+            }, 300);
+        });
+
+        // Fermer le menu en cliquant sur un lien
+        const menuLinks = document.querySelectorAll('.menu-items a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+                setTimeout(() => {
+                    mobileMenu.style.display = 'none';
+                }, 300);
+            });
+        });
+
+        // Compteurs animés
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        const startCounting = (counter) => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const count = parseInt(counter.innerText);
+            const increment = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(() => startCounting(counter), 10);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    startCounting(counter);
+                    observer.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => observer.observe(counter));
+    </script>
+</body>
+</html>

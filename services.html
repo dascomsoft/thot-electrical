@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>THOT ELECTRICAL SARL - Nos Services</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/thotlogo.jpg">
+    <link rel="shortcut icon" href="images/thotlogo.jpg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Configuration Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A',
+                        secondary: '#FBBF24',
+                    },
+                    fontFamily: {
+                        'nunito': ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        /* Hero avec image de fond */
+        .services-hero-bg {
+            background-image: linear-gradient(rgba(30, 41, 59, 0.9), rgba(30, 41, 59, 0.9)), url('images/worker2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.6); }
+        }
+        
+        .glow-effect {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        .electric-line {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .electric-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FBBF24, transparent);
+            animation: electric 2s linear infinite;
+        }
+        
+        @keyframes electric {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        /* Menu mobile */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #1e293b;
+            z-index: 100;
+            display: none;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #FBBF24;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+        
+        .mobile-menu .menu-items {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: 2rem;
+        }
+        
+        .mobile-menu .menu-items a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .mobile-menu .menu-items a:hover,
+        .mobile-menu .menu-items a.active {
+            color: #FBBF24;
+        }
+        
+        .process-step {
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .realisation-item {
+            transition: all 0.3s ease;
+        }
+        
+        .realisation-item:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-slate-800 text-white">
+
+    <!-- WhatsApp Flottant -->
+    <a href="https://wa.me/237693795561" class="whatsapp-float bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all z-50" target="_blank">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Navigation Desktop -->
+    <nav class="bg-slate-800/95 backdrop-blur-sm fixed w-full z-50 border-b border-secondary/20">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2" data-aos="fade-right">
+                    <img src="images/thotlogo.jpg" alt="THOT Electrical" class="w-12 h-12 rounded-full object-cover border-2 border-secondary">
+                    <div>
+                        <h1 class="text-xl font-bold text-secondary">THOT</h1>
+                        <p class="text-xs text-white">ELECTRICAL SARL</p>
+                    </div>
+                </a>
+
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex space-x-8" data-aos="fade-left">
+                    <a href="index.html" class="text-white hover:text-secondary transition">Accueil</a>
+                    <a href="about.html" class="text-white hover:text-secondary transition">À Propos</a>
+                    <a href="services.html" class="text-secondary font-semibold border-b-2 border-secondary pb-1">Services</a>
+                    <a href="electricite.html" class="text-white hover:text-secondary transition">Électricité</a>
+                    <a href="solaire.html" class="text-white hover:text-secondary transition">Solaire</a>
+                    <a href="securite.html" class="text-white hover:text-secondary transition">Sécurité</a>
+                    <a href="contact.html" class="text-white hover:text-secondary transition">Contact</a>
+                </div>
+
+                <!-- Menu Mobile Button -->
+                <button id="menuToggle" class="md:hidden text-secondary text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Mobile -->
+    <div id="mobileMenu" class="mobile-menu">
+        <div class="close-btn" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="menu-items">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="electricite.html">Électricité</a>
+            <a href="solaire.html">Solaire</a>
+            <a href="securite.html">Sécurité</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section - Services avec image de fond -->
+    <section class="relative pt-32 pb-20 overflow-hidden services-hero-bg min-h-[50vh] flex items-center">
+        <!-- Overlay supplémentaire -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-slate-800/50"></div>
+        
+        <!-- Éléments décoratifs -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-20 w-64 h-64 bg-secondary/10 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center max-w-4xl mx-auto" data-aos="fade-up">
+                <div class="inline-block mb-4 px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full border border-secondary/30 electric-line">
+                    <span class="text-secondary font-semibold flex items-center gap-2">
+                        <i class="fas fa-tools"></i>
+                        NOTRE EXPERTISE
+                    </span>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    Des solutions <span class="text-secondary">complètes</span> en génie électrique
+                </h1>
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+                    Du bureau d'études à la réalisation, nous couvrons tous vos besoins électriques avec professionnalisme.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid Principale -->
+    <section class="py-20 bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="bg-secondary/10 text-secondary px-6 py-2 rounded-full text-sm font-semibold border border-secondary/30">NOS SERVICES</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-6 mb-4">Ce que nous <span class="text-secondary">proposons</span></h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">Des solutions adaptées à tous vos besoins en électricité</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1: Bureau d'Études -->
+                <div class="service-card bg-slate-800/50 p-8 rounded-2xl border border-secondary/20 backdrop-blur-sm hover:border-secondary/70 transition-all group" data-aos="fade-up">
+                    <div class="w-20 h-20 bg-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+                        <i class="fas fa-draw-polygon text-slate-800 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-secondary">Bureau d'Études Techniques</h3>
+                    <p class="text-gray-300 mb-4">Conception et planification de projets électriques selon les normes en vigueur.</p>
+                    <ul class="space-y-2 text-gray-400 mb-6">
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Études de faisabilité</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Plans électriques détaillés</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Dimensionnement d'équipements</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Consultation technique</li>
+                    </ul>
+                    <a href="contact.html" class="inline-flex items-center text-secondary font-semibold hover:underline group">
+                        Demander une étude <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2: Électricité Bâtiment -->
+                <div class="service-card bg-slate-800/50 p-8 rounded-2xl border border-secondary/20 backdrop-blur-sm hover:border-secondary/70 transition-all group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+                        <i class="fas fa-bolt text-slate-800 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-secondary">Électricité Bâtiment</h3>
+                    <p class="text-gray-300 mb-4">Installation, dépannage, rénovation et maintenance pour tous types de bâtiments.</p>
+                    <ul class="space-y-2 text-gray-400 mb-6">
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Installation complète</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Dépannage 7j/7</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Rénovation électrique</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Maintenance préventive</li>
+                    </ul>
+                    <a href="electricite.html" class="inline-flex items-center text-secondary font-semibold hover:underline group">
+                        En savoir plus <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3: Énergie Solaire -->
+                <div class="service-card bg-slate-800/50 p-8 rounded-2xl border border-secondary/20 backdrop-blur-sm hover:border-secondary/70 transition-all group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+                        <i class="fas fa-sun text-slate-800 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-secondary">Énergie Solaire</h3>
+                    <p class="text-gray-300 mb-4">Systèmes photovoltaïques pour éliminer les coupures ENEO.</p>
+                    <ul class="space-y-2 text-gray-400 mb-6">
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Étude personnalisée</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Installation clé en main</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Maintenance & dépannage</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Kits résidentiels & industriels</li>
+                    </ul>
+                    <a href="solaire.html" class="inline-flex items-center text-secondary font-semibold hover:underline group">
+                        Éliminer ENEO <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4: Caméras Surveillance -->
+                <div class="service-card bg-slate-800/50 p-8 rounded-2xl border border-secondary/20 backdrop-blur-sm hover:border-secondary/70 transition-all group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 bg-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+                        <i class="fas fa-video text-slate-800 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-secondary">Caméras de Surveillance</h3>
+                    <p class="text-gray-300 mb-4">Protégez vos biens avec nos systèmes de vidéosurveillance.</p>
+                    <ul class="space-y-2 text-gray-400 mb-6">
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Caméras HD & IP</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Vision nocturne</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Enregistrement cloud</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Installation professionnelle</li>
+                    </ul>
+                    <a href="securite.html" class="inline-flex items-center text-secondary font-semibold hover:underline group">
+                        Sécuriser mes locaux <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i>
+                    </a>
+                </div>
+
+                <!-- Service 5: Sécurité Incendie -->
+                <div class="service-card bg-slate-800/50 p-8 rounded-2xl border border-secondary/20 backdrop-blur-sm hover:border-secondary/70 transition-all group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 bg-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+                        <i class="fas fa-fire-extinguisher text-slate-800 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-secondary">Système Sécurité Incendie</h3>
+                    <p class="text-gray-300 mb-4">Détection et alarme incendie pour protéger vos biens et vos proches.</p>
+                    <ul class="space-y-2 text-gray-400 mb-6">
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Détecteurs de fumée</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Centrales d'alarme</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Extincteurs</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Conformité aux normes</li>
+                    </ul>
+                    <a href="securite.html" class="inline-flex items-center text-secondary font-semibold hover:underline group">
+                        Prévenir les risques <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i>
+                    </a>
+                </div>
+
+                <!-- Service 6: Consultation -->
+                <div class="service-card bg-slate-800/50 p-8 rounded-2xl border border-secondary/20 backdrop-blur-sm hover:border-secondary/70 transition-all group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-20 h-20 bg-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+                        <i class="fas fa-chart-line text-slate-800 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-secondary">Consultation en Génie Électrique</h3>
+                    <p class="text-gray-300 mb-4">Conseils d'experts pour vos projets électriques complexes.</p>
+                    <ul class="space-y-2 text-gray-400 mb-6">
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Audit énergétique</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Optimisation des coûts</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Assistance technique</li>
+                        <li><i class="fas fa-check text-secondary mr-2"></i>Expertise</li>
+                    </ul>
+                    <a href="contact.html" class="inline-flex items-center text-secondary font-semibold hover:underline group">
+                        Consulter un expert <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processus d'intervention -->
+    <section class="py-20 bg-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="bg-secondary/10 text-secondary px-6 py-2 rounded-full text-sm font-semibold border border-secondary/30">NOTRE MÉTHODE</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-6 mb-4">Comment nous <span class="text-secondary">intervenons</span></h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">Un processus clair et transparent pour tous vos projets.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="process-step text-center relative" data-aos="fade-up">
+                    <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold text-slate-800 glow-effect">1</div>
+                    <h3 class="text-xl font-bold mb-2 text-secondary">Consultation</h3>
+                    <p class="text-gray-400">Échange sur vos besoins et prise de rendez-vous pour une visite technique.</p>
+                    <div class="hidden md:block absolute top-10 left-full w-full h-0.5 bg-secondary/30"></div>
+                </div>
+
+                <div class="process-step text-center relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold text-slate-800">2</div>
+                    <h3 class="text-xl font-bold mb-2 text-secondary">Étude & Devis</h3>
+                    <p class="text-gray-400">Analyse technique et proposition d'un devis gratuit et détaillé.</p>
+                    <div class="hidden md:block absolute top-10 left-full w-full h-0.5 bg-secondary/30"></div>
+                </div>
+
+                <div class="process-step text-center relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold text-slate-800">3</div>
+                    <h3 class="text-xl font-bold mb-2 text-secondary">Réalisation</h3>
+                    <p class="text-gray-400">Intervention de nos équipes avec suivi et respect des délais.</p>
+                    <div class="hidden md:block absolute top-10 left-full w-full h-0.5 bg-secondary/30"></div>
+                </div>
+
+                <div class="process-step text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold text-slate-800">4</div>
+                    <h3 class="text-xl font-bold mb-2 text-secondary">Suivi & Maintenance</h3>
+                    <p class="text-gray-400">Service après-vente et contrats de maintenance disponibles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarifs indicatifs -->
+    <section class="py-20 bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="bg-secondary/10 text-secondary px-6 py-2 rounded-full text-sm font-semibold border border-secondary/30">NOS TARIFS</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-6 mb-4">Nos <span class="text-secondary">prestations</span></h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">Des services adaptés à tous les budgets et besoins</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Forfait Résidentiel -->
+                <div class="pricing-card bg-slate-800 p-8 rounded-2xl border border-secondary/20 hover:border-secondary/70 transition-all" data-aos="fade-up">
+                    <div class="text-center mb-6">
+                        <div class="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-home text-secondary text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-secondary">Résidentiel</h3>
+                        <p class="text-gray-400">Maisons & appartements</p>
+                    </div>
+                    <ul class="space-y-3 text-gray-300 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Installation complète</li>
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Dépannage urgent</li>
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Mise aux normes</li>
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Devis gratuit</li>
+                    </ul>
+                    <a href="contact.html" class="block text-center bg-secondary text-slate-800 py-3 rounded-full font-bold hover:bg-yellow-400 transition">
+                        Demander un devis
+                    </a>
+                </div>
+
+                <!-- Forfait Commercial -->
+                <div class="pricing-card bg-slate-800 p-8 rounded-2xl border-2 border-secondary scale-105 relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-secondary text-slate-800 px-4 py-1 rounded-full text-sm font-bold">
+                        Populaire
+                    </div>
+                    <div class="text-center mb-6">
+                        <div class="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-building text-secondary text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-secondary">Commercial</h3>
+                        <p class="text-gray-400">Bureaux & commerces</p>
+                    </div>
+                    <ul class="space-y-3 text-gray-300 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Installation professionnelle</li>
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Contrat de maintenance</li>
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Sécurité incendie</li>
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Vidéosurveillance</li>
+                    </ul>
+                    <a href="contact.html" class="block text-center bg-secondary text-slate-800 py-3 rounded-full font-bold hover:bg-yellow-400 transition">
+                        Devis entreprise
+                    </a>
+                </div>
+
+                <!-- Forfait Industriel -->
+                <div class="pricing-card bg-slate-800 p-8 rounded-2xl border border-secondary/20 hover:border-secondary/70 transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center mb-6">
+                        <div class="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-industry text-secondary text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-secondary">Industriel</h3>
+                        <p class="text-gray-400">Usines & entrepôts</p>
+                    </div>
+                    <ul class="space-y-3 text-gray-300 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Étude personnalisée</li>
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Installation haute tension</li>
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Automatismes</li>
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i>Maintenance industrielle</li>
+                    </ul>
+                    <a href="contact.html" class="block text-center bg-secondary text-slate-800 py-3 rounded-full font-bold hover:bg-yellow-400 transition">
+                        Étude personnalisée
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Réalisations par service -->
+    <section class="py-20 bg-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="bg-secondary/10 text-secondary px-6 py-2 rounded-full text-sm font-semibold border border-secondary/30">NOS RÉALISATIONS</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-6 mb-4">Nos <span class="text-secondary">réalisations</span> par service</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="realisation-item relative group overflow-hidden rounded-2xl" data-aos="zoom-in">
+                    <img src="images/thot.jpg" alt="Installation solaire" class="w-full h-80 object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="bg-secondary text-slate-800 px-3 py-1 rounded-full text-sm font-bold mb-2 inline-block">Solaire</span>
+                        <h3 class="text-2xl font-bold">Installation photovoltaïque</h3>
+                        <p class="text-gray-300">Résidence à Yaoundé</p>
+                    </div>
+                </div>
+
+                <div class="realisation-item relative group overflow-hidden rounded-2xl" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="images/worker1.jpg" alt="Tableau électrique" class="w-full h-80 object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="bg-secondary text-slate-800 px-3 py-1 rounded-full text-sm font-bold mb-2 inline-block">Électricité</span>
+                        <h3 class="text-2xl font-bold">Tableau électrique</h3>
+                        <p class="text-gray-300">Immeuble à Douala</p>
+                    </div>
+                </div>
+
+                <div class="realisation-item relative group overflow-hidden rounded-2xl" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="images/worker2.jpg" alt="Sécurité" class="w-full h-80 object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="bg-secondary text-slate-800 px-3 py-1 rounded-full text-sm font-bold mb-2 inline-block">Sécurité</span>
+                        <h3 class="text-2xl font-bold">Caméras surveillance</h3>
+                        <p class="text-gray-300">Entreprise à Logbessou</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages par service -->
+    <section class="py-20 bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="bg-secondary/10 text-secondary px-6 py-2 rounded-full text-sm font-semibold border border-secondary/30">TÉMOIGNAGES</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-6 mb-4">Ils ont choisi nos <span class="text-secondary">services</span></h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Témoignage Solaire -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-secondary/20 hover:border-secondary/50 transition-all" data-aos="fade-up">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-sun text-secondary"></i>
+                        </div>
+                        <span class="text-secondary font-semibold">Solaire</span>
+                    </div>
+                    <p class="text-gray-300 mb-4 italic">"Installation de 6 panneaux solaires. Depuis, plus de coupures ! Merci à l'équipe."</p>
+                    <p class="font-bold">M. Ndongo</p>
+                    <p class="text-sm text-gray-400">Yaoundé</p>
+                </div>
+
+                <!-- Témoignage Électricité -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-secondary/20 hover:border-secondary/50 transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-bolt text-secondary"></i>
+                        </div>
+                        <span class="text-secondary font-semibold">Électricité</span>
+                    </div>
+                    <p class="text-gray-300 mb-4 italic">"Rénovation complète de l'électricité de mon appartement. Travail soigné et propre."</p>
+                    <p class="font-bold">Mme Bikoe</p>
+                    <p class="text-sm text-gray-400">Douala</p>
+                </div>
+
+                <!-- Témoignage Sécurité -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-secondary/20 hover:border-secondary/50 transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-video text-secondary"></i>
+                        </div>
+                        <span class="text-secondary font-semibold">Sécurité</span>
+                    </div>
+                    <p class="text-gray-300 mb-4 italic">"4 caméras installées dans mon magasin. L'image est parfaite même la nuit."</p>
+                    <p class="font-bold">Ets Fouda</p>
+                    <p class="text-sm text-gray-400">Logbessou</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Services -->
+    <section class="py-20 bg-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="bg-secondary/10 text-secondary px-6 py-2 rounded-full text-sm font-semibold border border-secondary/30">FAQ</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-6 mb-4">Questions fréquentes <span class="text-secondary">sur nos services</span></h2>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="bg-slate-700/50 p-6 rounded-xl border border-secondary/20" data-aos="fade-up">
+                    <h3 class="text-xl font-bold text-secondary mb-2">Quels types de panneaux solaires installez-vous ?</h3>
+                    <p class="text-gray-300">Nous installons des panneaux monocristallins et polycristallins de grandes marques, adaptés à vos besoins et à votre budget.</p>
+                </div>
+
+                <div class="bg-slate-700/50 p-6 rounded-xl border border-secondary/20" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold text-secondary mb-2">Proposez-vous des contrats de maintenance ?</h3>
+                    <p class="text-gray-300">Oui, nous proposons des contrats de maintenance adaptés aux professionnels comme aux particuliers, avec intervention sous 24h.</p>
+                </div>
+
+                <div class="bg-slate-700/50 p-6 rounded-xl border border-secondary/20" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-secondary mb-2">Quel est le délai pour un devis ?</h3>
+                    <p class="text-gray-300">Nous nous engageons à vous fournir un devis détaillé sous 48h après la visite technique.</p>
+                </div>
+
+                <div class="bg-slate-700/50 p-6 rounded-xl border border-secondary/20" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold text-secondary mb-2">Intervenez-vous uniquement à Yaoundé et Douala ?</h3>
+                    <p class="text-gray-300">Notre zone d'intervention principale est Yaoundé et Douala, mais nous pouvons étudier les demandes pour d'autres localités.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Devis -->
+    <section class="py-20 relative overflow-hidden bg-gradient-to-r from-slate-800 to-slate-900">
+        <div class="absolute inset-0 bg-secondary/5"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">Prêt à démarrer votre projet ?</h2>
+            <p class="text-xl mb-8 text-gray-300" data-aos="fade-up" data-aos-delay="100">Contactez-nous pour un devis gratuit et personnalisé</p>
+            <div class="flex flex-wrap gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
+                <a href="contact.html" class="bg-secondary text-slate-800 px-8 py-4 rounded-full font-bold hover:bg-yellow-400 transition text-lg shadow-lg">
+                    <i class="fas fa-calculator mr-2"></i>Obtenir un devis
+                </a>
+                <a href="tel:+237693795561" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-slate-800 transition text-lg">
+                    <i class="fas fa-phone-alt mr-2"></i>Appeler maintenant
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-secondary/20 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="images/thotlogo.jpg" alt="THOT" class="w-10 h-10 rounded-full border border-secondary">
+                        <div>
+                            <h3 class="font-bold text-secondary">THOT ELECTRICAL</h3>
+                            <p class="text-xs text-gray-400">SARL</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">Pour un service exceptionnel dans le génie électrique à Yaoundé et Douala.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-secondary mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="electricite.html" class="hover:text-secondary transition">Électricité bâtiment</a></li>
+                        <li><a href="solaire.html" class="hover:text-secondary transition">Énergie solaire</a></li>
+                        <li><a href="securite.html" class="hover:text-secondary transition">Caméras surveillance</a></li>
+                        <li><a href="securite.html" class="hover:text-secondary transition">Sécurité incendie</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-secondary mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center gap-2"><i class="fas fa-phone-alt text-secondary w-5"></i>+237 693 79 55 61</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-phone-alt text-secondary w-5"></i>+237 672 76 52 36</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-envelope text-secondary w-5"></i>thotelectricalsarl@gmail.com</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-secondary mb-4">Adresses</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-secondary w-5"></i>Douala-Logbessou</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-secondary w-5"></i>Yaoundé-Messassi</li>
+                        <li class="flex items-center gap-2"><i class="far fa-clock text-secondary w-5"></i>7j/7 - 24h/24</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-secondary/20 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2026 THOT ELECTRICAL SARL. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Menu mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.style.display = 'block';
+            setTimeout(() => {
+                mobileMenu.classList.add('open');
+            }, 10);
+        });
+
+        closeMenu.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+            setTimeout(() => {
+                mobileMenu.style.display = 'none';
+            }, 300);
+        });
+
+        // Fermer le menu en cliquant sur un lien
+        const menuLinks = document.querySelectorAll('.menu-items a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+                setTimeout(() => {
+                    mobileMenu.style.display = 'none';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>

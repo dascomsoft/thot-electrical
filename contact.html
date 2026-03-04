@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>THOT ELECTRICAL SARL - Contact & Devis</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/thotlogo.jpg">
+    <link rel="shortcut icon" href="images/thotlogo.jpg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Configuration Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A',
+                        secondary: '#FBBF24',
+                    },
+                    fontFamily: {
+                        'nunito': ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        /* Hero avec image de fond */
+        .contact-hero-bg {
+            background-image: linear-gradient(rgba(30, 41, 59, 0.9), rgba(30, 41, 59, 0.9)), url('images/thot1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.6); }
+        }
+        
+        .glow-effect {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        .electric-line {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .electric-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FBBF24, transparent);
+            animation: electric 2s linear infinite;
+        }
+        
+        @keyframes electric {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        /* Menu mobile */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #1e293b;
+            z-index: 100;
+            display: none;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #FBBF24;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+        
+        .mobile-menu .menu-items {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: 2rem;
+        }
+        
+        .mobile-menu .menu-items a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .mobile-menu .menu-items a:hover,
+        .mobile-menu .menu-items a.active {
+            color: #FBBF24;
+        }
+        
+        .contact-card {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: #FBBF24;
+        }
+        
+        .map-card {
+            transition: all 0.3s ease;
+        }
+        
+        .map-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .form-input:focus {
+            box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-800 text-white">
+
+    <!-- WhatsApp Flottant -->
+    <a href="https://wa.me/237693795561" class="whatsapp-float bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all z-50" target="_blank">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Navigation Desktop -->
+    <nav class="bg-slate-800/95 backdrop-blur-sm fixed w-full z-50 border-b border-secondary/20">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2" data-aos="fade-right">
+                    <img src="images/thotlogo.jpg" alt="THOT Electrical" class="w-12 h-12 rounded-full object-cover border-2 border-secondary">
+                    <div>
+                        <h1 class="text-xl font-bold text-secondary">THOT</h1>
+                        <p class="text-xs text-white">ELECTRICAL SARL</p>
+                    </div>
+                </a>
+
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex space-x-8" data-aos="fade-left">
+                    <a href="index.html" class="text-white hover:text-secondary transition">Accueil</a>
+                    <a href="about.html" class="text-white hover:text-secondary transition">À Propos</a>
+                    <a href="services.html" class="text-white hover:text-secondary transition">Services</a>
+                    <a href="electricite.html" class="text-white hover:text-secondary transition">Électricité</a>
+                    <a href="solaire.html" class="text-white hover:text-secondary transition">Solaire</a>
+                    <a href="securite.html" class="text-white hover:text-secondary transition">Sécurité</a>
+                    <a href="contact.html" class="text-secondary font-semibold border-b-2 border-secondary pb-1">Contact</a>
+                </div>
+
+                <!-- Menu Mobile Button -->
+                <button id="menuToggle" class="md:hidden text-secondary text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Mobile -->
+    <div id="mobileMenu" class="mobile-menu">
+        <div class="close-btn" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="menu-items">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+            <a href="services.html">Services</a>
+            <a href="electricite.html">Électricité</a>
+            <a href="solaire.html">Solaire</a>
+            <a href="securite.html">Sécurité</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section - Contact avec image de fond -->
+    <section class="relative pt-32 pb-20 overflow-hidden contact-hero-bg min-h-[50vh] flex items-center">
+        <!-- Overlay supplémentaire -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-slate-800/50"></div>
+        
+        <!-- Éléments décoratifs -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-20 w-64 h-64 bg-secondary/10 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center max-w-4xl mx-auto" data-aos="fade-up">
+                <div class="inline-block mb-4 px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full border border-secondary/30 electric-line">
+                    <span class="text-secondary font-semibold flex items-center gap-2">
+                        <i class="fas fa-phone-alt"></i>
+                        CONTACTEZ-NOUS
+                    </span>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    Devis <span class="text-secondary">gratuit</span> & sans engagement
+                </h1>
+                <p class="text-xl text-gray-200">
+                    Réponse sous 24h ou immédiatement par WhatsApp
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulaire de contact avec envoi WhatsApp -->
+    <section class="py-10 bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Formulaire -->
+                <div class="contact-card bg-slate-800 p-8 rounded-2xl border border-secondary/20 backdrop-blur-sm" data-aos="fade-right">
+                    <h2 class="text-3xl font-bold mb-6">Demander un <span class="text-secondary">devis</span></h2>
+                    
+                    <form id="contactForm" class="space-y-6">
+                        <!-- Nom -->
+                        <div>
+                            <label class="block text-gray-300 mb-2">Nom complet *</label>
+                            <input type="text" id="nom" required class="form-input w-full bg-slate-700 border border-secondary/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-secondary transition">
+                        </div>
+
+                        <!-- Téléphone -->
+                        <div>
+                            <label class="block text-gray-300 mb-2">Téléphone *</label>
+                            <input type="tel" id="telephone" required class="form-input w-full bg-slate-700 border border-secondary/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-secondary transition">
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label class="block text-gray-300 mb-2">Email</label>
+                            <input type="email" id="email" class="form-input w-full bg-slate-700 border border-secondary/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-secondary transition">
+                        </div>
+
+                        <!-- Service souhaité -->
+                        <div>
+                            <label class="block text-gray-300 mb-2">Service souhaité *</label>
+                            <select id="service" required class="form-input w-full bg-slate-700 border border-secondary/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-secondary transition">
+                                <option value="" class="bg-slate-700">Sélectionnez un service</option>
+                                <option value="Électricité bâtiment" class="bg-slate-700">Électricité bâtiment</option>
+                                <option value="Énergie solaire" class="bg-slate-700">Énergie solaire</option>
+                                <option value="Caméras surveillance" class="bg-slate-700">Caméras surveillance</option>
+                                <option value="Sécurité incendie" class="bg-slate-700">Sécurité incendie</option>
+                                <option value="Bureau d'études" class="bg-slate-700">Bureau d'études</option>
+                                <option value="Consultation" class="bg-slate-700">Consultation</option>
+                            </select>
+                        </div>
+
+                        <!-- Type de projet -->
+                        <div>
+                            <label class="block text-gray-300 mb-2">Type de projet *</label>
+                            <select id="typeProjet" required class="form-input w-full bg-slate-700 border border-secondary/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-secondary transition">
+                                <option value="" class="bg-slate-700">Sélectionnez</option>
+                                <option value="Résidentiel" class="bg-slate-700">Résidentiel</option>
+                                <option value="Commercial" class="bg-slate-700">Commercial / Bureau</option>
+                                <option value="Industriel" class="bg-slate-700">Industriel</option>
+                            </select>
+                        </div>
+
+                        <!-- Localisation -->
+                        <div>
+                            <label class="block text-gray-300 mb-2">Localisation *</label>
+                            <select id="localisation" required class="form-input w-full bg-slate-700 border border-secondary/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-secondary transition">
+                                <option value="" class="bg-slate-700">Sélectionnez</option>
+                                <option value="Douala" class="bg-slate-700">Douala</option>
+                                <option value="Yaoundé" class="bg-slate-700">Yaoundé</option>
+                                <option value="Autre" class="bg-slate-700">Autre (précisez dans message)</option>
+                            </select>
+                        </div>
+
+                        <!-- Message -->
+                        <div>
+                            <label class="block text-gray-300 mb-2">Votre message *</label>
+                            <textarea id="message" rows="4" required class="form-input w-full bg-slate-700 border border-secondary/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-secondary transition" placeholder="Décrivez votre projet..."></textarea>
+                        </div>
+
+                        <!-- Bouton submit -->
+                        <button type="button" onclick="envoyerVersWhatsApp()" class="w-full bg-secondary text-slate-800 py-4 rounded-full font-bold text-lg hover:bg-yellow-400 transition transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg shadow-secondary/30">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                            Envoyer la demande sur WhatsApp
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Coordonnées et infos -->
+                <div class="space-y-8" data-aos="fade-left">
+                    <!-- Contacts directs -->
+                    <div class="contact-card bg-slate-800 p-8 rounded-2xl border border-secondary/20">
+                        <h2 class="text-3xl font-bold mb-6">Contact <span class="text-secondary">direct</span></h2>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4 group">
+                                <div class="w-14 h-14 bg-secondary/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/40 transition">
+                                    <i class="fas fa-phone-alt text-secondary text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400">Téléphone (Urgence 7j/7)</p>
+                                    <a href="tel:+237693795561" class="text-xl font-bold text-secondary hover:underline">+237 693 79 55 61</a>
+                                    <a href="tel:+237672765236" class="block text-gray-300">+237 672 76 52 36</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 group">
+                                <div class="w-14 h-14 bg-secondary/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/40 transition">
+                                    <i class="fab fa-whatsapp text-secondary text-3xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400">WhatsApp (Réponse rapide)</p>
+                                    <a href="https://wa.me/237693795561" class="text-xl font-bold text-secondary hover:underline" target="_blank">+237 693 79 55 61</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 group">
+                                <div class="w-14 h-14 bg-secondary/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/40 transition">
+                                    <i class="fas fa-envelope text-secondary text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400">Email</p>
+                                    <a href="mailto:thotelectricalsarl@gmail.com" class="text-xl font-bold text-secondary hover:underline break-all">thotelectricalsarl@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Adresses -->
+                    <div class="contact-card bg-slate-800 p-8 rounded-2xl border border-secondary/20">
+                        <h2 class="text-3xl font-bold mb-6">Nos <span class="text-secondary">adresses</span></h2>
+                        
+                        <div class="space-y-4">
+                            <div class="flex gap-3 group">
+                                <i class="fas fa-map-marker-alt text-secondary text-xl mt-1"></i>
+                                <div>
+                                    <p class="font-bold text-white">Siège social :</p>
+                                    <p class="text-gray-300">Douala-Logbessou</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 group">
+                                <i class="fas fa-map-marker-alt text-secondary text-xl mt-1"></i>
+                                <div>
+                                    <p class="font-bold text-white">Agence :</p>
+                                    <p class="text-gray-300">Yaoundé-Messassi</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Disponibilité -->
+                        <div class="mt-6 p-4 bg-slate-700 rounded-xl border border-secondary/30">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-clock text-secondary text-2xl"></i>
+                                <div>
+                                    <p class="font-bold text-secondary">Disponibilité 7j/7</p>
+                                    <p class="text-gray-300">Intervention urgente 24h/24</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Réseaux sociaux -->
+                    <div class="contact-card bg-slate-800 p-8 rounded-2xl border border-secondary/20">
+                        <h2 class="text-2xl font-bold mb-4">Suivez-nous</h2>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center hover:bg-secondary/40 transition">
+                                <i class="fab fa-facebook-f text-secondary text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center hover:bg-secondary/40 transition">
+                                <i class="fab fa-linkedin-in text-secondary text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center hover:bg-secondary/40 transition">
+                                <i class="fab fa-instagram text-secondary text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cartes (simulées) -->
+    <section class="py-20 bg-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="bg-secondary/10 text-secondary px-6 py-2 rounded-full text-sm font-semibold border border-secondary/30">NOS AGENCES</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-6 mb-4">Où <span class="text-secondary">nous trouver</span></h2>
+                <p class="text-gray-300">Deux agences à votre service</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Douala -->
+                <div class="map-card bg-slate-700/50 p-6 rounded-2xl border border-secondary/20 hover:border-secondary/70 transition-all" data-aos="fade-right">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-map-pin text-secondary text-2xl"></i>
+                        <h3 class="text-2xl font-bold text-secondary">Douala - Logbessou</h3>
+                    </div>
+                    <div class="bg-slate-800 h-64 rounded-xl flex items-center justify-center border border-secondary/30">
+                        <div class="text-center">
+                            <i class="fas fa-map-marked-alt text-secondary text-5xl mb-3"></i>
+                            <p class="text-gray-300">Quartier Logbessou</p>
+                            <p class="text-sm text-gray-400">(Plan d'accès sur demande)</p>
+                            <a href="https://maps.google.com/?q=Douala+Logbessou+Cameroun" target="_blank" class="inline-block mt-4 text-secondary hover:underline">
+                                <i class="fas fa-external-link-alt mr-1"></i>Voir sur Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yaoundé -->
+                <div class="map-card bg-slate-700/50 p-6 rounded-2xl border border-secondary/20 hover:border-secondary/70 transition-all" data-aos="fade-left">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-map-pin text-secondary text-2xl"></i>
+                        <h3 class="text-2xl font-bold text-secondary">Yaoundé - Messassi</h3>
+                    </div>
+                    <div class="bg-slate-800 h-64 rounded-xl flex items-center justify-center border border-secondary/30">
+                        <div class="text-center">
+                            <i class="fas fa-map-marked-alt text-secondary text-5xl mb-3"></i>
+                            <p class="text-gray-300">Quartier Messassi</p>
+                            <p class="text-sm text-gray-400">(Plan d'accès sur demande)</p>
+                            <a href="https://maps.google.com/?q=Yaounde+Messassi+Cameroun" target="_blank" class="inline-block mt-4 text-secondary hover:underline">
+                                <i class="fas fa-external-link-alt mr-1"></i>Voir sur Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Contact -->
+    <section class="py-20 bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="bg-secondary/10 text-secondary px-6 py-2 rounded-full text-sm font-semibold border border-secondary/30">FAQ</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-6 mb-4">Questions fréquentes <span class="text-secondary">sur nos services</span></h2>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="bg-slate-800 p-6 rounded-xl border border-secondary/20 hover:border-secondary/50 transition-all" data-aos="fade-up">
+                    <h3 class="text-xl font-bold text-secondary mb-2">Le devis est-il vraiment gratuit ?</h3>
+                    <p class="text-gray-300">Oui, tous nos devis sont gratuits et sans engagement. Nous vous fournissons une estimation détaillée après une visite technique.</p>
+                </div>
+
+                <div class="bg-slate-800 p-6 rounded-xl border border-secondary/20 hover:border-secondary/50 transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold text-secondary mb-2">Quels sont les délais de réponse ?</h3>
+                    <p class="text-gray-300">Nous répondons à toutes les demandes sous 24h maximum. Pour une urgence, appelez-nous directement au +237 693 79 55 61.</p>
+                </div>
+
+                <div class="bg-slate-800 p-6 rounded-xl border border-secondary/20 hover:border-secondary/50 transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-secondary mb-2">Intervenez-vous dans toute la ville ?</h3>
+                    <p class="text-gray-300">Nous couvrons Yaoundé, Douala et leurs environs. Pour d'autres localités, contactez-nous pour étudier la faisabilité.</p>
+                </div>
+
+                <div class="bg-slate-800 p-6 rounded-xl border border-secondary/20 hover:border-secondary/50 transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold text-secondary mb-2">Puis-je payer en plusieurs fois ?</h3>
+                    <p class="text-gray-300">Oui, nous proposons des facilités de paiement adaptées à votre budget. Discutons-en lors de l'établissement du devis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pourquoi nous contacter -->
+    <section class="py-20 bg-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="bg-secondary/10 text-secondary px-6 py-2 rounded-full text-sm font-semibold border border-secondary/30">NOS ENGAGEMENTS</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-6 mb-4">Pourquoi <span class="text-secondary">nous contacter</span> ?</h2>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center group" data-aos="fade-up">
+                    <div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary/40 transition">
+                        <i class="fas fa-clock text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2 text-white">Réponse rapide</h3>
+                    <p class="text-sm text-gray-400">Sous 24h maximum</p>
+                </div>
+
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary/40 transition">
+                        <i class="fas fa-file-invoice text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2 text-white">Devis détaillé</h3>
+                    <p class="text-sm text-gray-400">Transparent et sans surprise</p>
+                </div>
+
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary/40 transition">
+                        <i class="fas fa-check-circle text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2 text-white">Sans engagement</h3>
+                    <p class="text-sm text-gray-400">Vous êtes libre de choisir</p>
+                </div>
+
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary/40 transition">
+                        <i class="fas fa-headset text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2 text-white">Conseils experts</h3>
+                    <p class="text-sm text-gray-400">Ingénieurs à votre écoute</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-20 relative overflow-hidden bg-gradient-to-r from-slate-800 to-slate-900">
+        <div class="absolute inset-0 bg-secondary/5"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">Besoin d'un conseil immédiat ?</h2>
+            <p class="text-xl mb-8 text-gray-300" data-aos="fade-up" data-aos-delay="100">Nos experts sont disponibles 7j/7</p>
+            <div class="flex flex-wrap gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
+                <a href="tel:+237693795561" class="bg-secondary text-slate-800 px-8 py-4 rounded-full font-bold hover:bg-yellow-400 transition text-lg shadow-lg">
+                    <i class="fas fa-phone-alt mr-2"></i>Appeler maintenant
+                </a>
+                <a href="https://wa.me/237693795561" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-slate-800 transition text-lg">
+                    <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-secondary/20 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="images/thotlogo.jpg" alt="THOT" class="w-10 h-10 rounded-full border border-secondary">
+                        <div>
+                            <h3 class="font-bold text-secondary">THOT ELECTRICAL</h3>
+                            <p class="text-xs text-gray-400">SARL</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">Pour un service exceptionnel dans le génie électrique à Yaoundé et Douala.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-secondary mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="electricite.html" class="hover:text-secondary transition">Électricité bâtiment</a></li>
+                        <li><a href="solaire.html" class="hover:text-secondary transition">Énergie solaire</a></li>
+                        <li><a href="securite.html" class="hover:text-secondary transition">Caméras surveillance</a></li>
+                        <li><a href="securite.html" class="hover:text-secondary transition">Sécurité incendie</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-secondary mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center gap-2"><i class="fas fa-phone-alt text-secondary w-5"></i>+237 693 79 55 61</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-phone-alt text-secondary w-5"></i>+237 672 76 52 36</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-envelope text-secondary w-5"></i>thotelectricalsarl@gmail.com</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-secondary mb-4">Adresses</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-secondary w-5"></i>Douala-Logbessou</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-secondary w-5"></i>Yaoundé-Messassi</li>
+                        <li class="flex items-center gap-2"><i class="far fa-clock text-secondary w-5"></i>7j/7 - 24h/24</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-secondary/20 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2026 THOT ELECTRICAL SARL. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script pour l'envoi WhatsApp -->
+    <script>
+        function envoyerVersWhatsApp() {
+            // Récupération des valeurs du formulaire
+            const nom = document.getElementById('nom').value.trim();
+            const telephone = document.getElementById('telephone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const service = document.getElementById('service').value;
+            const typeProjet = document.getElementById('typeProjet').value;
+            const localisation = document.getElementById('localisation').value;
+            const message = document.getElementById('message').value.trim();
+
+            // Vérification des champs requis
+            if (!nom || !telephone || !service || !typeProjet || !localisation || !message) {
+                alert('Veuillez remplir tous les champs obligatoires (*)');
+                return;
+            }
+
+            // Construction du message pour WhatsApp
+            let texteMessage = `*NOUVELLE DEMANDE DE DEVIS - THOT ELECTRICAL*%0A%0A`;
+            texteMessage += `👤 *Nom* : ${nom}%0A`;
+            texteMessage += `📞 *Téléphone* : ${telephone}%0A`;
+            if (email) texteMessage += `📧 *Email* : ${email}%0A`;
+            texteMessage += `🔧 *Service* : ${service}%0A`;
+            texteMessage += `🏢 *Type de projet* : ${typeProjet}%0A`;
+            texteMessage += `📍 *Localisation* : ${localisation}%0A`;
+            texteMessage += `📝 *Message* : ${message}%0A%0A`;
+            texteMessage += `_Message envoyé depuis le site web_`;
+
+            // Numéro WhatsApp (format international sans +)
+            const numeroWhatsApp = '237693795561'; // +237 693 79 55 61
+
+            // Création du lien WhatsApp
+            const url = `https://wa.me/${numeroWhatsApp}?text=${texteMessage}`;
+
+            // Ouverture de WhatsApp dans un nouvel onglet
+            window.open(url, '_blank');
+
+            // Optionnel : animation de succès sur le bouton
+            const bouton = event.target;
+            const texteOriginal = bouton.innerHTML;
+            bouton.innerHTML = '<i class="fas fa-check mr-2"></i>Message envoyé sur WhatsApp !';
+            bouton.classList.add('bg-green-500', 'hover:bg-green-600');
+            bouton.classList.remove('bg-secondary', 'hover:bg-yellow-400');
+
+            setTimeout(() => {
+                bouton.innerHTML = texteOriginal;
+                bouton.classList.remove('bg-green-500', 'hover:bg-green-600');
+                bouton.classList.add('bg-secondary', 'hover:bg-yellow-400');
+            }, 3000);
+        }
+    </script>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Menu mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.style.display = 'block';
+            setTimeout(() => {
+                mobileMenu.classList.add('open');
+            }, 10);
+        });
+
+        closeMenu.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+            setTimeout(() => {
+                mobileMenu.style.display = 'none';
+            }, 300);
+        });
+
+        // Fermer le menu en cliquant sur un lien
+        const menuLinks = document.querySelectorAll('.menu-items a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+                setTimeout(() => {
+                    mobileMenu.style.display = 'none';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>
